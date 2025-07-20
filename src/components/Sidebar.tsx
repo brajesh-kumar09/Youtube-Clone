@@ -77,7 +77,7 @@ export default function Sidebar() {
 
   const subscribedChannels = [
     { name: 'Fireship', icon: <img src="https://wallpaperaccess.com/full/4723250.jpg" alt="Fireship" style={{ width: 24, height: 24, borderRadius: '50%' }} /> },
-    { name: 'Traversy Media', icon: <img src="https://yt3.ggpht.com/ytc/AKedOLQwK8QTraversy=s32-c-k-c0x00ffffff-no-rj" alt="Traversy Media" style={{ width: 24, height: 24, borderRadius: '50%' }} /> },
+    { name: 'Traversy Media', icon: <img src="https://wallpaperaccess.com/full/4723250.jpg" alt="Traversy Media" style={{ width: 24, height: 24, borderRadius: '50%' }} /> },
     // ...add more channels or fetch from API
   ];
   const menuItems_3 = subscribedChannels.map(channel => ({
