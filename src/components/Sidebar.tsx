@@ -55,7 +55,7 @@ import HelpIcon from '@mui/icons-material/Help';
 import FeedbackOutlinedIcon from '@mui/icons-material/FeedbackOutlined';
 import FeedbackIcon from '@mui/icons-material/Feedback';
 
-export default function Sidebar() {
+export default function Sidebar(props:any) {
   const theme = useTheme();
   const menuItems_1 = [
     { index: 'Home', text: 'Home', IconComponent: HomeOutlinedIcon, ActiveIconComponent: HomeIcon },
@@ -108,12 +108,11 @@ export default function Sidebar() {
   ];
 
   const islogin = true; // Example: Replace with actual login state
-  const isHamburger = false; // Example: Replace with actual state to toggle between hamburger and full sidebar
 
   const [isActive, setIsActive] = useState('Home');
 
   return (<>
-    {isHamburger ? (<>
+    {props.isHamburger ? (<>
       <Box sx={{ width: 200, bgcolor: 'background.paper', height: '100vh' }}>
         <List className='list-1'>
           {menuItems_1.map((item, index) => (

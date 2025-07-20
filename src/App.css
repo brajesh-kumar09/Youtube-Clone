@@ -1,1 +1,47 @@
 @import "tailwindcss";
+
+.home {
+  display: grid;
+  grid-template-columns: repeat(22, 1fr);
+  grid-template-rows: repeat(8, auto);
+  width: 100%;
+  height: 100vh;
+
+  .navbar {
+   grid-column: 1 / 23;
+   grid-row: 1 / 2;
+  }
+  .scroller {
+    grid-column: 5 / 23;
+    grid-row: 2 / 3;
+    overflow-x: scroll;
+    scrollbar-width: none;
+  }
+  .fullscroller {
+    grid-column: 3 / 23;
+  }
+  .sidebar {
+   grid-column: 1/5;
+   grid-row: 2 / 9;
+   overflow-y: scroll;
+   scrollbar-width: none;
+  }
+  .small{
+    grid-column: 1 /3;
+  }
+  .feed {
+    grid-column: 5 / 23;
+    grid-row: 3 / 9;
+    overflow-y: scroll;
+    scrollbar-width: none;
+  }
+  .fullfeed {
+    grid-column: 3 / 23;
+  }
+}
+
+
+
+
+
+
