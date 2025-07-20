@@ -108,7 +108,7 @@ export default function Sidebar() {
   ];
 
   const islogin = true; // Example: Replace with actual login state
-  const isHamburger = true; // Example: Replace with actual state to toggle between hamburger and full sidebar
+  const isHamburger = false; // Example: Replace with actual state to toggle between hamburger and full sidebar
 
   const [isActive, setIsActive] = useState('Home');
 

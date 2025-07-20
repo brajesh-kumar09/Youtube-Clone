@@ -12,7 +12,7 @@ import PersonIcon from "@mui/icons-material/Person";
 import { Badge, Button } from "@mui/material";
 import Scroller from "./Scroller";
 import DropDown from "../components/DropDown";
-const Youtube: React.FC<void> = () => {
+const Youtube = () => {
   const login = true;
   return (
     <>
