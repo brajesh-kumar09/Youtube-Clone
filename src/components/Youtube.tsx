@@ -2,18 +2,22 @@ import React from "react";
 import MenuSharpIcon from "@mui/icons-material/MenuSharp";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import SearchIcon from "@mui/icons-material/Search";
-import InputBase from "@mui/material/InputBase";
 import AddSharpIcon from "@mui/icons-material/AddSharp";
 import KeyboardVoiceIcon from "@mui/icons-material/KeyboardVoice";
 import NotificationsNoneSharpIcon from "@mui/icons-material/NotificationsNoneSharp";
 import AccountCircleSharpIcon from "@mui/icons-material/AccountCircleSharp";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
 import PersonIcon from "@mui/icons-material/Person";
 import { Badge, Button } from "@mui/material";
 import Scroller from "./Scroller";
 import DropDown from "./DropDown";
-const Youtube: React.FC<void> = () => {
-  const login = true;
+import { useSelector } from "react-redux";
+import { RootState } from "../redux/store";
+
+const Youtube = () => {
+  const login=useSelector((state:RootState)=>{
+    return state.users;
+  })
+
   return (
     <>
     <div className="m-0 p-0 w-full overflow-hidden">
@@ -66,12 +70,12 @@ const Youtube: React.FC<void> = () => {
         <div className="w-1/4 flex flex-row-reverse ">
           {login ? (
             <>
-              <div className="flex flex-row py-2 mr-5">
+              <div className="flex flex-row mr-5">
                 <div className="flex flex-row p-2 pr-4 mr-4 rounded-2xl bg-gray-100">
                   <AddSharpIcon></AddSharpIcon> <p>Create</p>
                 </div>
                 <div className="px-3 pt-1">
-                  <Badge color="error" badgeContent={99}>
+                  <Badge color="error" badgeContent={50}>
                     <NotificationsNoneSharpIcon
                       titleAccess="Notifications"
                       className="cursor-pointer"
@@ -79,21 +83,13 @@ const Youtube: React.FC<void> = () => {
                   </Badge>
                 </div>
                 <div className="px-3 pt-1">
-                  <AccountCircleSharpIcon className="text-blue-500"></AccountCircleSharpIcon>
+                  <AccountCircleSharpIcon className="text-blue-500 scale-110"></AccountCircleSharpIcon>
                 </div>
               </div>
             </>
           ) : (
             <div className="flex flex-row items-center mr-2.5 p-0.5">
-              {/* <button onClick={}>
-                 <MoreVertIcon
-                className="mx-3 text-gray-400 cursor-pointer"
-                titleAccess="Settings"
-                
-              ></MoreVertIcon>
-              </button> */}
               <DropDown/>
-             
               <div className="rounded-2xl w-25 p-1 px-2 text-blue-500 border-1 border-gray-300 text-sm hover:bg-blue-100">
                 <PersonIcon></PersonIcon> <span>Sign in</span>
               </div>

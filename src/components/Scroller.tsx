@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Button } from "@mui/material";
 
 // Sample category array
-const categories = [
+const categories :string[] = [
   "All",
   "Music",
   "Emraan Hashmi",

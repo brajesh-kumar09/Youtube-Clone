@@ -1,7 +1,7 @@
 
 import './output.css'
-import Youtube from './component/Youtube'
-import Temp from './component/DropDown';
+import Youtube from './components/Youtube'
+import Temp from './components/DropDown';
 
 function App() {
   return (
