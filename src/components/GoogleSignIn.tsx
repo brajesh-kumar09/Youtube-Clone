@@ -1,22 +1,52 @@
 import React, { useState } from 'react';
 import { TextField, Button } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 const GoogleSignIn: React.FC = () => {
   const [email, setEmail] = useState('');
-  const[password, setPassword]=useState('');
+  const [password, setPassword] = useState('');
+  const [errors, setErrors] = useState({ email: '', password: '' });
+
+  const navigate = useNavigate();
+
+  const validate = () => {
+    const newErrors = { email: '', password: '' };
+    let isValid = true;
+
+    if (!email.trim()) {
+      newErrors.email = 'Email is required.';
+      isValid = false;
+    } else if (!/^\S+@\S+\.\S+$/.test(email)) {
+      newErrors.email = 'Invalid email format.';
+      isValid = false;
+    }
+
+    if (!password.trim()) {
+      newErrors.password = 'Password is required.';
+      isValid = false;
+    }
+
+    setErrors(newErrors);
+    return isValid;
+  };
 
   const handleNext = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Email:', email);
+    if (validate()) {
+      console.log('Email:', email);
+      navigate('/feed');
+    }
   };
 
   return (
-    <div className="min-h-screen bg-white flex items-center justify-center px-4">
-      <div className="bg-[#fffafa] text-Black rounded-xl w-full max-w-md p-8 shadow-lg">
+    <div
+      className="min-h-screen bg-cover bg-center bg-no-repeat flex items-center justify-center px-4"
+      style={{ backgroundImage: `url('/bg-image.jpg')` }} // Make sure this image exists in your public folder
+    >
+      <div className="bg-[#fffafa] text-black rounded-xl w-full max-w-md p-8 shadow-lg">
         {/* Google logo */}
         <img
-          src='ytLogo.png'
+          src="ytLogo.png"
           alt="Google Logo"
           className="mb-6"
         />
@@ -26,33 +56,39 @@ const GoogleSignIn: React.FC = () => {
         <p className="text-sm text-black mb-6">to continue to YouTube</p>
 
         <form onSubmit={handleNext} className="space-y-6">
-          <TextField
-            fullWidth
-            label="Email or phone"
-            variant="outlined"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            
-          />
-           <TextField
-            fullWidth
-            label="Password"
-            variant="outlined"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
+          <div className="space-y-5">
+            <TextField
+              fullWidth
+              label="Email or phone"
+              variant="outlined"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              error={!!errors.email}
+              helperText={errors.email}
+            />
+            <TextField
+              fullWidth
+              type="password"
+              label="Password"
+              variant="outlined"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              error={!!errors.password}
+              helperText={errors.password}
+            />
+          </div>
+
           <div className="flex justify-between items-center mt-4">
-            <button type="button" className="text-sm text-blue-400 hover:underline">
-              <Link to="/sign-up">Create account</Link>
-            </button>
+            <Link to="/sign-up" className="text-sm text-blue-400 hover:underline">
+              Create account
+            </Link>
             <Button
               variant="contained"
               type="submit"
               sx={{
                 backgroundColor: '#8ab4f8',
                 color: '#000',
+                fontWeight: 600,
                 textTransform: 'none',
                 borderRadius: '20px',
                 paddingX: 3,
@@ -62,7 +98,7 @@ const GoogleSignIn: React.FC = () => {
                 },
               }}
             >
-              <Link to='/feed'>Sign In</Link>
+              Sign In
             </Button>
           </div>
         </form>

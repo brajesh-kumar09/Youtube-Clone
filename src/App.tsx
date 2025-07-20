@@ -1,8 +1,6 @@
 import Feed from './components/Feed';
 import React from 'react';
 import {Route, Routes} from 'react-router-dom';
-import Login from './components/Login';
-import Signup from './components/SignUp';
 import GoogleSignInClone from './components/GoogleSignIn';
 import GoogleSignUp from './components/GoogleSignUp';
 import GoogleSignIn from './components/GoogleSignIn';
