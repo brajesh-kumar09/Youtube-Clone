@@ -46,7 +46,7 @@ const Scroller = () => {
         <Button
           key={index}
           variant="outlined"
-          sx={{ flexShrink: 0, textTransform: "none", color: "black", fontWeight: "bold", backgroundColor: "#edeeef" }}
+          sx={{ flexShrink: 0, textTransform: "none", color: "black", backgroundColor: "#edeeef" }}
         >
           {cat}
         </Button>
