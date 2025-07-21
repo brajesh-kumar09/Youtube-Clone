@@ -6,29 +6,17 @@ import GoogleSignUp from './components/GoogleSignUp';
 import Sidebar from './components/Sidebar';
 import Youtube from './components/Youtube';
 import './output.css'; // Assuming you have a CSS file for global styles
+import {Home} from './components/home';
 
 function App() {
   return (
-    // <div className="App">
-    //   {/* Routes for login/signup */}
-    //   <Routes>
-    //     <Route path="/sign-up" element={<GoogleSignUp />} />
-    //     <Route path="/sign-in" element={<GoogleSignIn />} />
-    //     {/* <Route path="/feed" element={<Feed />} /> */}
-
-    //     {/* Protected or main content routes */}
-    //    <Route
-    //       path="/feed"
-    //       element={<>
-    //         <Sidebar />
-    //         <Youtube />
-           
-    //       </>}
-    //     />
-    //  </Routes>
-       
-    // </div>
-    <Feed />
+    <div className="App">
+      <Routes>
+        <Route path="/sign-up" element={<GoogleSignUp />} />
+        <Route path="/sign-in" element={<GoogleSignIn />} />
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </div>
   );
 }
 

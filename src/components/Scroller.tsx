@@ -39,15 +39,14 @@ const Scroller = () => {
         whiteSpace: "nowrap",
         gap: 1,
         p: 1,
-        "&::-webkit-scrollbar": { display: "none" }, 
+        "&::-webkit-scrollbar": { display: "none" },
       }}
     >
       {categories.map((cat, index) => (
         <Button
           key={index}
           variant="outlined"
-          sx={{ flexShrink: 0, textTransform: "none",color:"black",fontWeight:"bold",backgroundColor:"#edeeef" }} 
-          
+          sx={{ flexShrink: 0, textTransform: "none", color: "black", fontWeight: "bold", backgroundColor: "#edeeef" }}
         >
           {cat}
         </Button>
