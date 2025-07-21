@@ -17,7 +17,8 @@ const VideoCard: React.FC<VideoCardProps> = ({
   videoId,
 }) => {
   const handleClick = () => {
-    window.open(`https://www.youtube.com/watch?v=${videoId}`, '_blank');
+    // window.open(`https://www.youtube.com/watch?v=${videoId}`, '_blank');
+    window.location.href = `/vp/${videoId}`; // Navigate to the video player route
   };
 
   return (

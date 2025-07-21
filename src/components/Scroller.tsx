@@ -45,8 +45,8 @@ const Scroller = () => {
       {categories.map((cat, index) => (
         <Button
           key={index}
-          variant="outlined"
-          sx={{ flexShrink: 0, textTransform: "none", color: "black", fontWeight: "bold", backgroundColor: "#edeeef" }}
+          variant="text"
+          sx={{ flexShrink: 0, textTransform: "none", color: "black", fontSize: 'small', backgroundColor: "#edeeef" }}
         >
           {cat}
         </Button>

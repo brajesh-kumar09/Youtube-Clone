@@ -20,7 +20,7 @@ const Youtube = (props:any) => {
         <div className=" relative top-0 flex flex-row m-0 py-1 px-3 items-center justify-between w-full ">
           <div className="flex flex-row w-1/4">
             <div className="m-1 mr-0  px-2">
-              <div onClick={props.toggleHamburger} className="rounded-full p-1  py-2 hover:bg-gray-100">
+              <div onClick={() => {props.toggleHamburger(); props.toggleSidebar();}} className="rounded-full p-1  py-2 hover:bg-gray-100">
                 <MenuSharpIcon className=" mx-2 font-extralight"></MenuSharpIcon>
               </div>
             </div>
