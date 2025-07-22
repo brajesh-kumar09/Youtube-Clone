@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, CardMedia, CardContent, Typography } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 interface VideoCardProps {
   title: string;
@@ -16,9 +17,11 @@ const VideoCard: React.FC<VideoCardProps> = ({
   thumbnail,
   videoId,
 }) => {
+  const navigate = useNavigate();
   const handleClick = () => {
-    // window.open(`https://www.youtube.com/watch?v=${videoId}`, '_blank');
-    window.location.href = `/vp/${videoId}`; // Navigate to the video player route
+    navigate(`/vp/${videoId}`, {
+      state: { title, channel, views, thumbnail, videoId }
+    });
   };
 
   return (

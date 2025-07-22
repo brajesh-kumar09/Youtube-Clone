@@ -12,7 +12,7 @@ function App() {
         <Route path="/sign-up" element={<GoogleSignUp />} />
         <Route path="/sign-in" element={<GoogleSignIn />} />
         <Route path="/" element={<Home />} />
-        <Route path="/vp" element={<VideoPlayer/>} />
+        <Route path="/vp/:id" element={<VideoPlayer/>} />
       </Routes>
     </div>
   );

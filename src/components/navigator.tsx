@@ -7,6 +7,8 @@ import VidFrame from "./VidFrame";
 import VidPlayerFeed from "./VidPlayerFeed";
 import '../App.css';
 
+import { useLocation, useParams } from 'react-router-dom';
+
 const Home = () => {
   const [isHam, setIsHamburger] = React.useState(true);
   const toggleHamburger = () => {
@@ -23,16 +25,20 @@ const Home = () => {
     </div>
   );
 }
-const VideoPlayer = () => {
+const VideoPlayer = (props:any) => {
   const [showSidebar, setShowSidebar] = React.useState(false);
   const toggleSidebar = () => {
     setShowSidebar(!showSidebar);
   };
+  const location = useLocation();
+  const details = location.state || {};
+
+
   return (
     <div className={`vid-player ${showSidebar ? "with-sidebar" : ""}`}>
       <div className={`sidebar1 ${showSidebar ? "show" : "hide"}`} ><Sidebar isHamburger={true} /></div>
       <div className="navbar1"><Youtube toggleHamburger={()=>{}} toggleSidebar={toggleSidebar} /></div>
-      <div className="vidframe"><VidFrame/></div>
+      <div className="vidframe"><VidFrame details={details} /></div>
       <div className="vidfeed"><VidPlayerFeed /></div>
     </div>
   );
