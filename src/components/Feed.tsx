@@ -15,7 +15,7 @@ const Feed: React.FC = () => {
     };
     getVideos();
   }, []);
-
+  console.log("Videos fetched:", videos);
   if (loading) return <p className="text-center text-lg">Loading...</p>;
 
   return (
@@ -29,6 +29,7 @@ const Feed: React.FC = () => {
             channel={video.snippet.channelTitle}
             views={`${video.statistics.viewCount} views`}
             thumbnail={video.snippet.thumbnails.high.url}
+            description={video.snippet.description}
           />
         ))}
       </div>

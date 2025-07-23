@@ -8,6 +8,7 @@ interface VideoCardProps {
   views: string;
   thumbnail: string;
   videoId: string;
+  description?: string;
 }
 
 const VideoCard: React.FC<VideoCardProps> = ({
@@ -16,11 +17,12 @@ const VideoCard: React.FC<VideoCardProps> = ({
   views,
   thumbnail,
   videoId,
+  description
 }) => {
   const navigate = useNavigate();
   const handleClick = () => {
     navigate(`/vp/${videoId}`, {
-      state: { title, channel, views, thumbnail, videoId }
+      state: { title, channel, views, thumbnail, videoId, description }
     });
   };
 

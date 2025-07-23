@@ -25,5 +25,10 @@ export default function VidFrame(props: any) {
           </p>
         </div>
       </div>
+      <div className="description">
+        <p className="text-sm text-gray-600 dark:text-gray-400">
+          {props.details.description}
+        </p>
+      </div>
     </>);
 }
