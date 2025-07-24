@@ -2,16 +2,14 @@ import React from "react";
 import SubscriptionsIcon from "@mui/icons-material/Subscriptions";
 import PersonIcon from "@mui/icons-material/Person";
 import { Typography, Box, Button, Stack } from "@mui/material";
-import VideoLibraryIcon from '@mui/icons-material/VideoLibrary';
 import { Link } from "react-router-dom";
-import HistoryIcon from '@mui/icons-material/History';
 
-function ProfileFeed() {
+function SubscriptionFeed() {
   return (
     <Box
       sx={{
         height: "100vh",
-        width: "100vw",
+        width: "100%",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -24,12 +22,12 @@ function ProfileFeed() {
         textAlign="center"
         px={2}
       >
-        <HistoryIcon sx={{ fontSize: 100 }} />
+        <SubscriptionsIcon sx={{ fontSize: 100 }} />
         <Typography variant="h5" fontWeight={500}>
-         Keep track of what you watch
+          Don’t miss new videos
         </Typography>
         <Typography variant="body1" color="text.secondary">
-         Watch history isn't viewable when signed out. 
+          Sign in to see updates from your favorite YouTube channels
         </Typography>
         <Button
           variant="outlined"
@@ -51,4 +49,4 @@ function ProfileFeed() {
   );
 }
 
-export default ProfileFeed;
+export default SubscriptionFeed;

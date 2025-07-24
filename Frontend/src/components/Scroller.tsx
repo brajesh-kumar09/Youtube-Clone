@@ -1,5 +1,9 @@
 import React from "react";
-import { Box, Button } from "@mui/material";
+import { Box, Button, LinearProgress } from "@mui/material";
+import { click } from "@testing-library/user-event/dist/click";
+import { setVideos, YouTubeVideo } from "../redux/slice/YoutubeSlice";
+import { searchYouTubeVideos } from "../services/youtube";
+import { useDispatch } from "react-redux";
 
 // Sample category array
 const categories = [
@@ -30,7 +34,11 @@ const categories = [
   "Yo Yo Honey Singh",
 ];
 
-const Scroller = () => {
+const Scroller = (props:any) => {
+  const clickSearch = async (cat: string) => {
+    const searchTerm = cat === "All" ? "India news" : cat;
+    props.videorender(searchTerm);
+  };
   return (
     <Box
       sx={{
@@ -47,6 +55,7 @@ const Scroller = () => {
           key={index}
           variant="text"
           sx={{ flexShrink: 0, textTransform: "none", color: "black", fontSize: 'small', backgroundColor: "#edeeef" }}
+          onClick={() => clickSearch(cat)}
         >
           {cat}
         </Button>

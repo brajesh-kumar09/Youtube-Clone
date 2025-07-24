@@ -5,25 +5,31 @@ import { useNavigate } from 'react-router-dom';
 interface VideoCardProps {
   title: string;
   channel: string;
-  views: string;
   thumbnail: string;
   videoId: string;
-  description?: string;
+  description?: string; 
 }
 
 const VideoCard: React.FC<VideoCardProps> = ({
   title,
   channel,
-  views,
   thumbnail,
   videoId,
   description
 }) => {
   const navigate = useNavigate();
   const handleClick = () => {
-    navigate(`/vp/${videoId}`, {
-      state: { title, channel, views, thumbnail, videoId, description }
-    });
+    navigate(`/vp/${videoId}`,
+      {
+        state: {
+          videoId: videoId,
+          title: title,
+          channel: channel,
+          thumbnail: thumbnail,
+          description
+        },
+      }
+    )
   };
 
   return (
@@ -44,9 +50,6 @@ const VideoCard: React.FC<VideoCardProps> = ({
         </Typography>
         <Typography variant="body2" color="text.secondary" className="text-xs">
           {channel}
-        </Typography>
-        <Typography variant="caption" color="text.secondary" className="text-xs">
-          {views}
         </Typography>
       </CardContent>
     </Card>
